@@ -8,6 +8,7 @@ public class CharController : MonoBehaviour
     public float playerJumpValue;
     private bool isGrounded;
     public float rotationSpeed;
+    public float minX = -90.0f, maxX= 90.0f;
 
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
@@ -45,6 +46,8 @@ public class CharController : MonoBehaviour
 
         transform.localRotation = playerRotation;
         cam.transform.localRotation = camRotation;
+
+        camRotation = ClampRotationOnXaxis(camRotation);
     }
 
     bool PlayerGrounded()
@@ -80,5 +83,20 @@ public class CharController : MonoBehaviour
             rb.AddForce(0, playerJumpValue, 0);
             //rb.velocity = new Vector3(0, playerJumpValue, 0);
         }
+    }
+
+    Quaternion ClampRotationOnXaxis(Quaternion value)
+    {
+        value.x /= value.w;
+        value.y /= value.w;
+        value.z /= value.w;
+
+        value.w = 1.0f;
+
+        float angleX = 2.0f * Mathf.Rad2Deg*Mathf.Atan(value.x);
+        angleX = Mathf.Clamp(angleX, minX, maxX);
+        value.x = Mathf.Tan(0.5f * Mathf.Deg2Rad * angleX);
+
+        return value;
     }
 }
