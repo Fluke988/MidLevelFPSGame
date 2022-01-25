@@ -598,3 +598,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 0.5
   playerJumpValue: 200
+  cam: {fileID: 963194225}
+  rotationSpeed: 5

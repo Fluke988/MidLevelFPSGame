@@ -5,10 +5,15 @@ using UnityEngine;
 public class CharController : MonoBehaviour
 {
     public float playerSpeed;
-    Rigidbody rb;
     public float playerJumpValue;
     private bool isGrounded;
+    public float rotationSpeed;
+
+    private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
+    public GameObject cam;
+    private Quaternion playerRotation;
+    private Quaternion camRotation;
 
     private void Awake()
     {
@@ -18,8 +23,10 @@ public class CharController : MonoBehaviour
 
     void Start()
     {
-        
+        camRotation = cam.transform.localRotation;
+        playerRotation = transform.localRotation;
     }
+
     void Update()
     {
         
@@ -29,6 +36,15 @@ public class CharController : MonoBehaviour
     {
         PlayerMovement();
         PlayerJumpMovement();
+
+        float mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
+        float mouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
+
+        camRotation = Quaternion.Euler(-mouseY, 0, 0) * camRotation;
+        playerRotation = Quaternion.Euler(0, mouseX, 0) * playerRotation;
+
+        transform.localRotation = playerRotation;
+        cam.transform.localRotation = camRotation;
     }
 
     bool PlayerGrounded()
