@@ -9,6 +9,7 @@ public class CharController : MonoBehaviour
     private bool isGrounded;
     public float rotationSpeed;
     public float minX = -90.0f, maxX= 90.0f;
+    private float walkSpeed = 0.3f, sprintSpeed = 0.6f;
 
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
@@ -41,6 +42,39 @@ public class CharController : MonoBehaviour
         {
             animator.SetBool("Firing", !animator.GetBool("Firing"));
         }
+
+        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.D))
+        {
+            animator.SetBool("Walking", true);
+        }
+        else if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.D))
+        {
+            animator.SetBool("Walking", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            animator.SetBool("Running", true);
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            animator.SetBool("Running", false);
+        }
+        else if ((Input.GetKeyDown(KeyCode.LeftShift)) && Input.GetMouseButtonDown(0))
+        {
+            print("Running and Firing On");
+            animator.SetBool("RunFire", true);
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift) && Input.GetMouseButtonUp(0))
+        {
+            print("Running and Firing Off");
+            animator.SetBool("RunFire", false);
+        }
+
+        //if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.D)) && (Input.GetMouseButtonDown(0)))
+        //{
+        //    animator.SetBool("WalkFire", !animator.GetBool("WalkFire"));
+        //}
     }
 
     void FixedUpdate()
@@ -79,10 +113,22 @@ public class CharController : MonoBehaviour
 
     void PlayerMovement()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            print("Speed Increased");
+            playerSpeed = sprintSpeed;
+        }
+        else
+        {
+            print("Speed Decreased");
+            playerSpeed = walkSpeed;
+        }
+
         float horizontalMovement = Input.GetAxis("Horizontal") * playerSpeed;
         float forwardMovement = Input.GetAxis("Vertical") * playerSpeed;
 
         //transform.position += new Vector3(horizontalMovement, 0, forwardMovement);
+        
         transform.position += cam.transform.forward * forwardMovement + cam.transform.right * horizontalMovement;
     }
 
