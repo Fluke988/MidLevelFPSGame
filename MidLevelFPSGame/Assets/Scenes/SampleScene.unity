@@ -745,3 +745,4 @@ MonoBehaviour:
   minX: -90
   maxX: 90
   cam: {fileID: 963194225}
+  animator: {fileID: 1791068627}

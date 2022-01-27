@@ -16,6 +16,8 @@ public class CharController : MonoBehaviour
     private Quaternion playerRotation;
     private Quaternion camRotation;
 
+    public Animator animator;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();   
@@ -30,7 +32,15 @@ public class CharController : MonoBehaviour
 
     void Update()
     {
-        
+        if(Input.GetMouseButtonDown(1))
+        {
+            animator.SetBool("Aiming", !animator.GetBool("Aiming"));
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetBool("Firing", !animator.GetBool("Firing"));
+        }
     }
 
     void FixedUpdate()
