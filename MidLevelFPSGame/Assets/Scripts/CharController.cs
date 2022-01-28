@@ -40,7 +40,8 @@ public class CharController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            animator.SetBool("Firing", !animator.GetBool("Firing"));
+            //animator.SetBool("Firing", !animator.GetBool("Firing"));
+            animator.SetTrigger("Firing");
         }
 
         if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.D))
@@ -75,6 +76,11 @@ public class CharController : MonoBehaviour
         //{
         //    animator.SetBool("WalkFire", !animator.GetBool("WalkFire"));
         //}
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            animator.SetTrigger("Reloading");
+        }
     }
 
     void FixedUpdate()
