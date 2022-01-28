@@ -126,7 +126,7 @@ public class CharController : MonoBehaviour
         }
         else
         {
-            print("Speed Decreased");
+            //print("Speed Decreased");
             playerSpeed = walkSpeed;
         }
 
@@ -161,5 +161,19 @@ public class CharController : MonoBehaviour
         value.x = Mathf.Tan(0.5f * Mathf.Deg2Rad * angleX);
 
         return value;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+       if(collision.gameObject.tag == "ammo")
+        {
+            print("Ammo Collected");
+            Destroy(collision.gameObject);
+        }
+       else if (collision.gameObject.tag == "med")
+        {
+            print("Medkit Collected");
+            Destroy(collision.gameObject);
+        }
     }
 }
