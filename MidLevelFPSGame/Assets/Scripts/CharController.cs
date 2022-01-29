@@ -81,6 +81,16 @@ public class CharController : MonoBehaviour
         {
             animator.SetTrigger("Reloading");
         }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            animator.SetTrigger("JumpFire");
+        }
+
+        //if (Input.GetKey(KeyCode.F))
+        //{
+        //    animator.SetTrigger("Melee");
+        //}
     }
 
     void FixedUpdate()
@@ -126,7 +136,6 @@ public class CharController : MonoBehaviour
         }
         else
         {
-            //print("Speed Decreased");
             playerSpeed = walkSpeed;
         }
 
