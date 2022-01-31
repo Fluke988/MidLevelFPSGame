@@ -10,6 +10,8 @@ public class CharController : MonoBehaviour
     public float rotationSpeed;
     public float minX = -90.0f, maxX= 90.0f;
     private float walkSpeed = 0.3f, sprintSpeed = 0.6f;
+    private int maxAmmoPickup = 15, ammoPickup = 0;
+    private int maxMedPickup = 15, medPickup = 0;
 
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
@@ -27,6 +29,7 @@ public class CharController : MonoBehaviour
 
     void Start()
     {
+        medPickup = maxMedPickup;
         camRotation = cam.transform.localRotation;
         playerRotation = transform.localRotation;
     }
@@ -84,7 +87,7 @@ public class CharController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            animator.SetTrigger("JumpFire");
+            animator.SetTrigger("JumpRifle");
         }
 
         //if (Input.GetKey(KeyCode.F))
@@ -174,15 +177,22 @@ public class CharController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-       if(collision.gameObject.tag == "ammo")
+       if(collision.gameObject.tag == "ammo" && ammoPickup < maxAmmoPickup)
         {
             print("Ammo Collected");
+            //ammoPickup += 5;
+            ammoPickup = Mathf.Clamp(ammoPickup + 5, 0, maxAmmoPickup);
             Destroy(collision.gameObject);
+            Debug.Log("ammoPickup= " + ammoPickup);
+
         }
-       else if (collision.gameObject.tag == "med")
+       else if (collision.gameObject.tag == "med" && medPickup < maxMedPickup)
         {
             print("Medkit Collected");
             Destroy(collision.gameObject);
+            ammoPickup = Mathf.Clamp(medPickup + 5, 0, maxMedPickup);
+            Destroy(collision.gameObject);
+            Debug.Log("medPickup= " + medPickup);
         }
     }
 }
