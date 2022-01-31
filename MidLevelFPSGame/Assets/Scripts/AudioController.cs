@@ -5,6 +5,8 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     public AudioSource fireSound;
+    public AudioSource walkSound;
+    public AudioSource runSound;
 
     void Start()
     {
@@ -19,5 +21,15 @@ public class AudioController : MonoBehaviour
     public void SoundOfFire()
     {
         fireSound.Play();
+    }
+
+    public void SoundOfWalk()
+    {
+        walkSound.Play();
+    }
+
+    public void SoundOfRun()
+    {
+        runSound.Play();
     }
 }

@@ -54,6 +54,7 @@ public class CharController : MonoBehaviour
                 ammoFireCount++;
                 print("Ammo Fire Count: " + ammoFireCount);
             }
+            
         }
 
         if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.D))
@@ -109,6 +110,11 @@ public class CharController : MonoBehaviour
             maxAmmo = maxAmmo - ammoFireCount;
             
             print("Curr Ammo: " + currAmmo + "  Max Ammo: " + maxAmmo);
+
+            //if (ammoFireCount == 25)
+            //{
+            //    animator.SetTrigger("Reloading");
+            //}
             ammoFireCount = 0;
         }
 
