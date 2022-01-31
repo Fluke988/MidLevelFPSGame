@@ -11,7 +11,7 @@ public class CharController : MonoBehaviour
     public float minX = -90.0f, maxX= 90.0f;
     private float walkSpeed = 0.3f, sprintSpeed = 0.6f;
     private int maxAmmoPickup = 15, ammunition = 0;
-    private int maxMedPickup = 15, medPickup = 0;
+    private int maxMedPickup = 15, medPack = 0;
 
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
@@ -30,7 +30,7 @@ public class CharController : MonoBehaviour
     void Start()
     {
         ammunition = maxAmmoPickup;
-        medPickup = maxMedPickup;
+        medPack = maxMedPickup;
         camRotation = cam.transform.localRotation;
         playerRotation = transform.localRotation;
     }
@@ -192,13 +192,20 @@ public class CharController : MonoBehaviour
             Debug.Log("ammoPickup= " + ammunition);
 
         }
-       else if (collision.gameObject.tag == "med" && medPickup < maxMedPickup)
+       else if (collision.gameObject.tag == "med" && medPack < maxMedPickup)
         {
             print("Medkit Collected");
             Destroy(collision.gameObject);
-            medPickup = Mathf.Clamp(medPickup + 5, 0, maxMedPickup);
+            medPack = Mathf.Clamp(medPack + 5, 0, maxMedPickup);
             Destroy(collision.gameObject);
-            Debug.Log("medPickup= " + medPickup);
+            Debug.Log("medPickup= " + medPack);
+        }
+       else if(collision.gameObject.tag == "lava")
+        {
+            //medPack -= 5;
+            //player death when health reaches zero (need to be done)
+            medPack = Mathf.Clamp(medPack - 5, 0, maxMedPickup);
+            Debug.Log("Health= " + medPack);
         }
     }
 }
