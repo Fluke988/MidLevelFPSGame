@@ -10,8 +10,9 @@ public class CharController : MonoBehaviour
     public float rotationSpeed;
     public float minX = -90.0f, maxX= 90.0f;
     private float walkSpeed = 0.3f, sprintSpeed = 0.6f;
-    private int maxAmmoPickup = 15, ammunition = 0;
+    private int maxAmmo = 75, currAmmo = 0;
     private int maxMedPickup = 15, medPack = 0;
+    public int ammoFireCount = 0;
 
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
@@ -29,7 +30,7 @@ public class CharController : MonoBehaviour
 
     void Start()
     {
-        ammunition = maxAmmoPickup;
+        currAmmo = 25;
         medPack = maxMedPickup;
         camRotation = cam.transform.localRotation;
         playerRotation = transform.localRotation;
@@ -44,12 +45,14 @@ public class CharController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !animator.GetBool("Firing"))
         {
-            if (ammunition > 0)
+            if (currAmmo > 0)
             {
                 //animator.SetBool("Firing", !animator.GetBool("Firing"));
-                ammunition = Mathf.Clamp(ammunition - 1, 0, ammunition);
+                currAmmo = Mathf.Clamp(currAmmo - 1, 0, currAmmo);
                 animator.SetTrigger("Firing");
-                Debug.Log("Ammo left= " + ammunition);
+                Debug.Log("Ammo left= " + currAmmo);
+                ammoFireCount++;
+                print("Ammo Fire Count: " + ammoFireCount);
             }
         }
 
@@ -89,6 +92,24 @@ public class CharController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             animator.SetTrigger("Reloading");
+            //int ammoNeeded = maxAmmoPickup - ammunition;
+            //print("ammoNeeded: "+ ammoNeeded);
+
+            //if(ammoNeeded < ammunition)
+            //{
+            //    ammunition = ammunition + ammoNeeded;
+            //    print("current ammo: "+ ammunition);
+            //}
+            //else if(ammoNeeded > ammunition)
+            //{
+            //    ammunition = ammunition + ammoNeeded;
+            //    print("current ammo: " + ammunition);
+            //}
+            currAmmo = currAmmo + ammoFireCount;
+            maxAmmo = maxAmmo - ammoFireCount;
+            
+            print("Curr Ammo: " + currAmmo + "  Max Ammo: " + maxAmmo);
+            ammoFireCount = 0;
         }
 
         if (Input.GetKey(KeyCode.Space))
@@ -183,13 +204,14 @@ public class CharController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-       if(collision.gameObject.tag == "ammo" && ammunition < maxAmmoPickup)
+       if(collision.gameObject.tag == "ammo" && maxAmmo < 75)
         {
             print("Ammo Collected");
             //ammoPickup += 5;
-            ammunition = Mathf.Clamp(ammunition + 5, 0, maxAmmoPickup);
+            //currAmmo = Mathf.Clamp(currAmmo + 5, 0, 25);
+            maxAmmo = Mathf.Clamp(maxAmmo + 10, 0, 75);
             Destroy(collision.gameObject);
-            Debug.Log("ammoPickup= " + ammunition);
+            Debug.Log("ammoPickup: " + maxAmmo);
 
         }
        else if (collision.gameObject.tag == "med" && medPack < maxMedPickup)
