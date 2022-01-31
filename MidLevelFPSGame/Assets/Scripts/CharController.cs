@@ -10,7 +10,7 @@ public class CharController : MonoBehaviour
     public float rotationSpeed;
     public float minX = -90.0f, maxX= 90.0f;
     private float walkSpeed = 0.3f, sprintSpeed = 0.6f;
-    private int maxAmmoPickup = 15, ammoPickup = 0;
+    private int maxAmmoPickup = 15, ammunition = 0;
     private int maxMedPickup = 15, medPickup = 0;
 
     private Rigidbody rb;
@@ -29,6 +29,7 @@ public class CharController : MonoBehaviour
 
     void Start()
     {
+        ammunition = maxAmmoPickup;
         medPickup = maxMedPickup;
         camRotation = cam.transform.localRotation;
         playerRotation = transform.localRotation;
@@ -41,10 +42,15 @@ public class CharController : MonoBehaviour
             animator.SetBool("Aiming", !animator.GetBool("Aiming"));
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !animator.GetBool("Firing"))
         {
-            //animator.SetBool("Firing", !animator.GetBool("Firing"));
-            animator.SetTrigger("Firing");
+            if (ammunition > 0)
+            {
+                //animator.SetBool("Firing", !animator.GetBool("Firing"));
+                ammunition = Mathf.Clamp(ammunition - 1, 0, ammunition);
+                animator.SetTrigger("Firing");
+                Debug.Log("Ammo left= " + ammunition);
+            }
         }
 
         if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.D))
@@ -177,20 +183,20 @@ public class CharController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-       if(collision.gameObject.tag == "ammo" && ammoPickup < maxAmmoPickup)
+       if(collision.gameObject.tag == "ammo" && ammunition < maxAmmoPickup)
         {
             print("Ammo Collected");
             //ammoPickup += 5;
-            ammoPickup = Mathf.Clamp(ammoPickup + 5, 0, maxAmmoPickup);
+            ammunition = Mathf.Clamp(ammunition + 5, 0, maxAmmoPickup);
             Destroy(collision.gameObject);
-            Debug.Log("ammoPickup= " + ammoPickup);
+            Debug.Log("ammoPickup= " + ammunition);
 
         }
        else if (collision.gameObject.tag == "med" && medPickup < maxMedPickup)
         {
             print("Medkit Collected");
             Destroy(collision.gameObject);
-            ammoPickup = Mathf.Clamp(medPickup + 5, 0, maxMedPickup);
+            medPickup = Mathf.Clamp(medPickup + 5, 0, maxMedPickup);
             Destroy(collision.gameObject);
             Debug.Log("medPickup= " + medPickup);
         }
