@@ -57,14 +57,14 @@ public class CharController : MonoBehaviour
             
         }
 
-        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.D))
-        {
-            animator.SetBool("Walking", true);
-        }
-        else if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.D))
-        {
-            animator.SetBool("Walking", false);
-        }
+        //if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.D))
+        //{
+        //    animator.SetBool("Walking", true);
+        //}
+        //else if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.D))
+        //{
+        //    animator.SetBool("Walking", false);
+        //}
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -177,6 +177,15 @@ public class CharController : MonoBehaviour
 
         float horizontalMovement = Input.GetAxis("Horizontal") * playerSpeed;
         float forwardMovement = Input.GetAxis("Vertical") * playerSpeed;
+
+        if (horizontalMovement != 0 || forwardMovement != 0)
+        {
+            animator.SetBool("Walking", true);
+        }
+        else
+        {
+            animator.SetBool("Walking", false);
+        }
 
         //transform.position += new Vector3(horizontalMovement, 0, forwardMovement);
         
