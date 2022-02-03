@@ -17,10 +17,10 @@ public class ZombieController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            anim.SetBool("isZombieGirlWalking", true);
+            anim.SetBool("isGirlZombieWalking", true);
         }
         else
-            anim.SetBool("isZombieGirlWalking", false);
+            anim.SetBool("isGirlZombieWalking", false);
 
         if (Input.GetKey(KeyCode.R))
         {
