@@ -24,7 +24,6 @@ public class ZombieController : MonoBehaviour
     enum STATE { IDLE, WANDER, CHASE, ATTACK, DEATH }
     STATE state = STATE.IDLE;
 
-
     void Start()
     {
         anim = this.GetComponent<Animator>();
@@ -41,20 +40,69 @@ public class ZombieController : MonoBehaviour
         anim.SetBool("isDead", false);
     }
 
+    bool ZombieCanSeePlayer()
+    {
+        //Logic for Zombie to see the player and chase
+        //Need to calculate the distance between the zombie and the player
+        if (DistanceToPlayer()<10.0f)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    float DistanceToPlayer()
+    {
+        return Vector3.Distance(targetPlayer.transform.position, this.transform.position);
+    }
+
     void Update()
     {
         switch (state)
         {
             case STATE.IDLE:
+                if (ZombieCanSeePlayer())
+                {
+                    state = STATE.CHASE;
+                }
+                else
+                {
+                    state = STATE.WANDER;
+                }
                 break;
+
             case STATE.WANDER:
+                if(!enemyAgent.hasPath)
+                {
+                    float newRandPosX = this.transform.position.x + Random.Range(-10, 10);
+                    float newRandPosZ = this.transform.position.z + Random.Range(-10, 10);
+                    float newRandPosY = Terrain.activeTerrain.SampleHeight(new Vector3(newRandPosX, 0, newRandPosZ));
+                    Vector3 finalDestination = new Vector3(newRandPosX, newRandPosY, newRandPosZ);
+                    enemyAgent.SetDestination(finalDestination);
+                    enemyAgent.stoppingDistance = 3.5f;
+                    TurnOffAnimTriggers();
+                    anim.SetBool("isWalking", true);
+                }
                 break;
+
             case STATE.CHASE:
+                enemyAgent.SetDestination(targetPlayer.transform.position);
+                enemyAgent.stoppingDistance = 3.5f;
+                TurnOffAnimTriggers();
+                anim.SetBool("isRunning", true);
+                if (enemyAgent.remainingDistance <= enemyAgent.stoppingDistance && !enemyAgent.pathPending)
+                {
+                    state = STATE.ATTACK;
+                }
                 break;
+
             case STATE.ATTACK:
                 break;
+
             case STATE.DEATH:
                 break;
+
             default:
                 break;
         }
