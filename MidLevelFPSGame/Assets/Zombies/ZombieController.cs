@@ -385,7 +385,7 @@ public class ZombieController : MonoBehaviour
     {
         //logic for zombie to see the player and chase
         //need to calculate distance to the player
-        if (DistanceToPlayer() < 10)
+        if (DistanceToPlayer() < 15)
         {
             return true;
         }
@@ -395,7 +395,7 @@ public class ZombieController : MonoBehaviour
 
     bool ZombieCantSeePlayer()
     {
-        if (DistanceToPlayer() > 10)
+        if (DistanceToPlayer() > 15)
         {
             return true;
         }
