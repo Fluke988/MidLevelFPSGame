@@ -4430,7 +4430,7 @@ GameObject:
   - component: {fileID: 2986969213742036222}
   - component: {fileID: 2111080105}
   m_Layer: 0
-  m_Name: jill
+  m_Name: zombiejill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

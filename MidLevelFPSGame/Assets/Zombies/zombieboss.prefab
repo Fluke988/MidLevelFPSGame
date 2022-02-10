@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 3277696249206785950}
   - component: {fileID: 1879584142}
   m_Layer: 0
-  m_Name: boss
+  m_Name: zombieboss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
