@@ -93,10 +93,19 @@ public class ZombieController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.G))
         {
-            GameObject rbTemp = Instantiate(zombieRagDoll, this.transform.position, this.transform.rotation);
-            rbTemp.transform.Find("Hips").GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 20000);
-            
-            Destroy(this.gameObject, 3.0f);
+            if(Random.Range(0, 10)<5)
+            {
+                GameObject rbTemp = Instantiate(zombieRagDoll, this.transform.position, this.transform.rotation);
+                rbTemp.transform.Find("Hips").GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 20000);
+
+                Destroy(this.gameObject, 3.0f);
+            }
+            else
+            {
+                TurnOffAnimTriggers();
+                anim.SetBool("isDead", true);
+                state = STATE.DEAD;
+            }   
         }
 
         switch (state)
