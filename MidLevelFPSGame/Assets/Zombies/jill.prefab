@@ -4486,7 +4486,6 @@ MonoBehaviour:
   targetPlayer: {fileID: 0}
   walkingSpeed: 3
   runningSpeed: 6
-  zombieRagDoll: {fileID: 8167090387638468623, guid: 1bcc8834b6e044540aa6f98c9354bf0d, type: 3}
 --- !u!195 &2111080105
 NavMeshAgent:
   m_ObjectHideFlags: 0

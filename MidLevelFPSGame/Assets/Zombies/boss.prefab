@@ -327,7 +327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4114869168490670261
 Transform:
   m_ObjectHideFlags: 0
@@ -378,7 +378,6 @@ MonoBehaviour:
   targetPlayer: {fileID: 0}
   walkingSpeed: 8
   runningSpeed: 15
-  zombieRagDoll: {fileID: 2530310478814245792, guid: 4ae11b81a244d474cacb056109ba2048, type: 3}
 --- !u!195 &1879584142
 NavMeshAgent:
   m_ObjectHideFlags: 0
