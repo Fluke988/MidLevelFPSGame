@@ -93,7 +93,9 @@ public class ZombieController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.G))
         {
-            Instantiate(zombieRagDoll, this.transform.position, this.transform.rotation);
+            GameObject rbTemp = Instantiate(zombieRagDoll, this.transform.position, this.transform.rotation);
+            rbTemp.transform.Find("Hips").GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 20000);
+            
             Destroy(this.gameObject, 3.0f);
         }
 
