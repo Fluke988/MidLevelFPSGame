@@ -17,18 +17,18 @@ using UnityEngine.AI;
 
 public class ZombieController : MonoBehaviour
 {
-    Animator anim;
+    public Animator anim;
     public GameObject targetPlayer;
     NavMeshAgent enemyAgent;
     public float walkingSpeed;
     public float runningSpeed;
     public GameObject zombieRagDoll;
 
-    enum STATE
+    public enum STATE
     {
         IDLE, WANDER, CHASE, ATTACK, DEAD
     };
-    STATE state = STATE.IDLE;
+    public STATE state = STATE.IDLE;
 
 
     // Start is called before the first frame update
@@ -39,7 +39,7 @@ public class ZombieController : MonoBehaviour
         //anim.SetBool("isWalking", true);
 
     }
-    void TurnOffAnimTriggers()
+    public void TurnOffAnimTriggers()
     {
         anim.SetBool("isWalking", false);
         anim.SetBool("isAttacking", false);
@@ -91,22 +91,22 @@ public class ZombieController : MonoBehaviour
         //    anim.SetBool("isAttacking", true);
         //}
 
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            if (Random.Range(0, 10) < 5)
-            {
-                GameObject rbTemp = Instantiate(zombieRagDoll, this.transform.position, this.transform.rotation);
-                rbTemp.transform.Find("Hips").GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 20000);
+        //if (Input.GetKeyDown(KeyCode.G))
+        //{
+        //    if (Random.Range(0, 10) < 5)
+        //    {
+        //        GameObject rbTemp = Instantiate(zombieRagDoll, this.transform.position, this.transform.rotation);
+        //        rbTemp.transform.Find("Hips").GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 20000);
 
-                Destroy(this.gameObject, 3.0f);
-            }
-            else
-            {
-                TurnOffAnimTriggers();
-                anim.SetBool("isDead", true);
-                state = STATE.DEAD;
-            }
-        }
+        //        Destroy(this.gameObject, 3.0f);
+        //    }
+        //    else
+        //    {
+        //        TurnOffAnimTriggers();
+        //        anim.SetBool("isDead", true);
+        //        state = STATE.DEAD;
+        //    }
+        //}
 
         switch (state)
         {

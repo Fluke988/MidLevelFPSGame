@@ -322,6 +322,7 @@ MonoBehaviour:
   ammoFireCount: 0
   cam: {fileID: 0}
   animator: {fileID: 0}
+  gunShootPos: {fileID: 0}
 --- !u!54 &3112079
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10027,6 +10028,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3567358601728944685, guid: 3ca8ca68866cdd24084f9ade5b086388, type: 3}
+      propertyPath: gunShootPos
+      value: 
+      objectReference: {fileID: 877399044}
     - target: {fileID: 3567358601728944687, guid: 3ca8ca68866cdd24084f9ade5b086388, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -29750,17 +29755,13 @@ PrefabInstance:
       propertyPath: targetPlayer
       value: 
       objectReference: {fileID: 1710833643}
-    - target: {fileID: 5542127211463571574, guid: 7912ec467aa9147a59e49b3925ad126e, type: 3}
-      propertyPath: zombieRagDoll
-      value: 
-      objectReference: {fileID: 844853473357613640, guid: d86cf95057a040e439150e4e1dced0bb, type: 3}
     - target: {fileID: 5643912976069227624, guid: 7912ec467aa9147a59e49b3925ad126e, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5643912976069227624, guid: 7912ec467aa9147a59e49b3925ad126e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 120.98
+      value: 101.07
       objectReference: {fileID: 0}
     - target: {fileID: 5643912976069227624, guid: 7912ec467aa9147a59e49b3925ad126e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -29768,7 +29769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5643912976069227624, guid: 7912ec467aa9147a59e49b3925ad126e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -456.77
+      value: -437.31
       objectReference: {fileID: 0}
     - target: {fileID: 5643912976069227624, guid: 7912ec467aa9147a59e49b3925ad126e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -29801,10 +29802,6 @@ PrefabInstance:
     - target: {fileID: 8649283112028866171, guid: 7912ec467aa9147a59e49b3925ad126e, type: 3}
       propertyPath: m_Name
       value: zombiegirl
-      objectReference: {fileID: 0}
-    - target: {fileID: 8649283112028866171, guid: 7912ec467aa9147a59e49b3925ad126e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7912ec467aa9147a59e49b3925ad126e, type: 3}

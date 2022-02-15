@@ -19,8 +19,9 @@ public class CharController : MonoBehaviour
     public GameObject cam;
     private Quaternion playerRotation;
     private Quaternion camRotation;
-
     public Animator animator;
+    public Transform gunShootPos;
+    ZombieController zc;
 
     private void Awake()
     {
@@ -53,6 +54,7 @@ public class CharController : MonoBehaviour
                 Debug.Log("Ammo left= " + currAmmo);
                 ammoFireCount++;
                 print("Ammo Fire Count: " + ammoFireCount);
+
                 ZombieHit();
             }
             
@@ -132,7 +134,31 @@ public class CharController : MonoBehaviour
 
     private void ZombieHit()
     {
+        RaycastHit hitInfo;
+        if(Physics.Raycast(gunShootPos.position, gunShootPos.forward, out hitInfo, 200f))
+        {
+            GameObject tempZombieHit = hitInfo.collider.gameObject;
+            if(tempZombieHit.tag == "zombie")
+            {
+                GameObject tempRagDollZombiePrefab = tempZombieHit.GetComponent<ZombieController>().zombieRagDoll;
+                GameObject tempNewRagdollPrefab = Instantiate(tempRagDollZombiePrefab, tempZombieHit.transform.position, tempZombieHit.transform.rotation);
 
+                tempNewRagdollPrefab.transform.Find("Hips").GetComponent<Rigidbody>().AddForce(gunShootPos.forward * 1000.0f);
+                Destroy(tempZombieHit);
+            }
+            else
+            {
+                ZombieKill();
+                //tempZombieHit.GetComponent<ZombieController>().ZombieKill();
+            }
+        }
+    }
+
+    void ZombieKill()
+    {
+        zc.TurnOffAnimTriggers();
+        zc.anim.SetBool("isDead", true);
+        zc.state = ZombieController.STATE.DEAD;
     }
 
     void FixedUpdate()
