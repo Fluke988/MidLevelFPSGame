@@ -10073,6 +10073,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca8ca68866cdd24084f9ade5b086388, type: 3}
+--- !u!4 &615967832 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8429464656947431832, guid: 3ca8ca68866cdd24084f9ade5b086388, type: 3}
+  m_PrefabInstance: {fileID: 615967831}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &617330623 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 485294, guid: cbd0b3ad55adbb2449d91dce8172900a, type: 3}
@@ -13595,6 +13600,45 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869211623}
   m_Mesh: {fileID: 2452395832302434611, guid: 05d0dcbe2e37f7c4a9ba340de427e5c5, type: 3}
+--- !u!1 &877399043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 877399044}
+  - component: {fileID: 877399047}
+  m_Layer: 0
+  m_Name: GunEndPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &877399044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877399043}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.0943, z: 0.4489}
+  m_LocalScale: {x: 0.1078, y: 0.1078, z: 0.1078}
+  m_Children: []
+  m_Father: {fileID: 615967832}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &877399047
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877399043}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &877854751 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 485976, guid: a623c2ec3ffef4a418446974683b1c8b, type: 3}

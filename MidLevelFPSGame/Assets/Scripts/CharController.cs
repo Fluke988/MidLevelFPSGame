@@ -53,6 +53,7 @@ public class CharController : MonoBehaviour
                 Debug.Log("Ammo left= " + currAmmo);
                 ammoFireCount++;
                 print("Ammo Fire Count: " + ammoFireCount);
+                ZombieHit();
             }
             
         }
@@ -127,6 +128,11 @@ public class CharController : MonoBehaviour
         //{
         //    animator.SetTrigger("Melee");
         //}
+    }
+
+    private void ZombieHit()
+    {
+
     }
 
     void FixedUpdate()
