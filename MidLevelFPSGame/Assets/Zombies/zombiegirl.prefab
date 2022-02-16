@@ -2238,10 +2238,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec9c05e03277468cac8631ea3ac0fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   targetPlayer: {fileID: 0}
   walkingSpeed: 4
   runningSpeed: 8
   zombieRagDoll: {fileID: 844853473357613640, guid: d86cf95057a040e439150e4e1dced0bb, type: 3}
+  state: 0
 --- !u!195 &950835592
 NavMeshAgent:
   m_ObjectHideFlags: 0

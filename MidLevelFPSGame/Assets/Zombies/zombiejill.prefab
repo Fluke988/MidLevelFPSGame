@@ -4429,6 +4429,7 @@ GameObject:
   - component: {fileID: 2986969213742036221}
   - component: {fileID: 2986969213742036222}
   - component: {fileID: 2111080105}
+  - component: {fileID: 7215804903213892638}
   m_Layer: 0
   m_Name: zombiejill
   m_TagString: Untagged
@@ -4483,9 +4484,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec9c05e03277468cac8631ea3ac0fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   targetPlayer: {fileID: 0}
   walkingSpeed: 3
   runningSpeed: 6
+  zombieRagDoll: {fileID: 7947486946312344530, guid: a2278753e72504344b7329244a003be5, type: 3}
+  state: 0
 --- !u!195 &2111080105
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4508,3 +4512,17 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &7215804903213892638
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153167617879130721}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
