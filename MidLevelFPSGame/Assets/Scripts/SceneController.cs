@@ -18,4 +18,5 @@ public class SceneController : MonoBehaviour
     {
         Initiate.Fade("HomeScene", Color.white, 1.0f);
     }
+
 }
