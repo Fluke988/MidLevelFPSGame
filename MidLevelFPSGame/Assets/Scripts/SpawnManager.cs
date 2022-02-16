@@ -9,6 +9,7 @@ public class SpawnManager : MonoBehaviour
     public int number;
     public float spawnRadius;
     public bool spawnOnStart = true;
+    public int zombieCount = 0;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class SpawnManager : MonoBehaviour
             if (NavMesh.SamplePosition(randomPoint, out hit, 10.0f, NavMesh.AllAreas))
             {
                 Instantiate(zombiePrefab, hit.position, Quaternion.identity);
+                zombieCount++;
             }
         }
     }

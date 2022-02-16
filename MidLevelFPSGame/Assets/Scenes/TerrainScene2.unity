@@ -8351,20 +8351,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1099347172983380646, guid: d5b7cf80f1fab4ea0bd49a0e878214fe, type: 3}
   m_PrefabInstance: {fileID: 1879584140}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &526791396
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526791395}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.8
-  m_Height: 2.2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &526791399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4114869168490670261, guid: d5b7cf80f1fab4ea0bd49a0e878214fe, type: 3}
@@ -9940,17 +9926,9 @@ PrefabInstance:
       propertyPath: targetPlayer
       value: 
       objectReference: {fileID: 1710833643}
-    - target: {fileID: 4858005932450810757, guid: 6a1d6fe89cd7e4fe486e4cabf09b8d3d, type: 3}
-      propertyPath: zombieRagDoll
-      value: 
-      objectReference: {fileID: 8923113926212515651, guid: cdf2f3f63f2040443a25688683dd8638, type: 3}
     - target: {fileID: 5176861845160572960, guid: 6a1d6fe89cd7e4fe486e4cabf09b8d3d, type: 3}
       propertyPath: m_Name
       value: zombieman
-      objectReference: {fileID: 0}
-    - target: {fileID: 5176861845160572960, guid: 6a1d6fe89cd7e4fe486e4cabf09b8d3d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8182110007186639411, guid: 6a1d6fe89cd7e4fe486e4cabf09b8d3d, type: 3}
       propertyPath: m_RootOrder
@@ -27893,20 +27871,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5176861845160572960, guid: 6a1d6fe89cd7e4fe486e4cabf09b8d3d, type: 3}
   m_PrefabInstance: {fileID: 588700968}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &1747035975
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747035974}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.9
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!4 &1747035978 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8182110007186639411, guid: 6a1d6fe89cd7e4fe486e4cabf09b8d3d, type: 3}
@@ -29976,18 +29940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: zombieboss
       objectReference: {fileID: 0}
-    - target: {fileID: 1099347172983380646, guid: d5b7cf80f1fab4ea0bd49a0e878214fe, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3277696249206785950, guid: d5b7cf80f1fab4ea0bd49a0e878214fe, type: 3}
       propertyPath: targetPlayer
       value: 
       objectReference: {fileID: 1710833643}
-    - target: {fileID: 3277696249206785950, guid: d5b7cf80f1fab4ea0bd49a0e878214fe, type: 3}
-      propertyPath: zombieRagDoll
-      value: 
-      objectReference: {fileID: 8923113926212515651, guid: cdf2f3f63f2040443a25688683dd8638, type: 3}
     - target: {fileID: 4114869168490670261, guid: d5b7cf80f1fab4ea0bd49a0e878214fe, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -33374,10 +33330,6 @@ PrefabInstance:
       propertyPath: targetPlayer
       value: 
       objectReference: {fileID: 1710833643}
-    - target: {fileID: 2986969213742036222, guid: b7dd32307aa7f43bf98270b4b8b91c33, type: 3}
-      propertyPath: zombieRagDoll
-      value: 
-      objectReference: {fileID: 7947486946312344530, guid: a2278753e72504344b7329244a003be5, type: 3}
     - target: {fileID: 5286606572932149362, guid: b7dd32307aa7f43bf98270b4b8b91c33, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -33426,10 +33378,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: zombiejill
       objectReference: {fileID: 0}
-    - target: {fileID: 9153167617879130721, guid: b7dd32307aa7f43bf98270b4b8b91c33, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7dd32307aa7f43bf98270b4b8b91c33, type: 3}
 --- !u!1 &2111080104 stripped
@@ -33437,20 +33385,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9153167617879130721, guid: b7dd32307aa7f43bf98270b4b8b91c33, type: 3}
   m_PrefabInstance: {fileID: 2111080103}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &2111080105
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111080104}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.8
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!4 &2111080108 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5286606572932149362, guid: b7dd32307aa7f43bf98270b4b8b91c33, type: 3}

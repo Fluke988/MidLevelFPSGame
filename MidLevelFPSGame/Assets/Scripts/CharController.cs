@@ -22,6 +22,7 @@ public class CharController : MonoBehaviour
     public Animator animator;
     public Transform gunShootPos;
     ZombieController zc;
+    SpawnManager sm;
 
     private void Awake()
     {
@@ -159,6 +160,11 @@ public class CharController : MonoBehaviour
         zc.TurnOffAnimTriggers();
         zc.anim.SetBool("isDead", true);
         zc.state = ZombieController.STATE.DEAD;
+        sm.zombieCount--;
+        if(sm.zombieCount == 0)
+        {
+            Initiate.Fade("GameOverScene", Color.black, 1.0f);
+        }
     }
 
     void FixedUpdate()

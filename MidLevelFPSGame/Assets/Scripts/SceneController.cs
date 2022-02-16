@@ -8,4 +8,14 @@ public class SceneController : MonoBehaviour
     {
         Initiate.Fade("TerrainScene2", Color.black, 1.0f);
     }
+
+    public void OnRestartButtonClicked()
+    {
+        Initiate.Fade("TerrainScene2", Color.black, 1.0f);
+    }
+
+    public void OnHomeButtonClicked()
+    {
+        Initiate.Fade("HomeScene", Color.white, 1.0f);
+    }
 }
