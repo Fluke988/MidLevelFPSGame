@@ -8439,7 +8439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11437536, guid: 69b40ef7ee16c834c844b3fa26e0fdda, type: 3}
       propertyPath: RainIntensity
-      value: 0.516
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 11437536, guid: 69b40ef7ee16c834c844b3fa26e0fdda, type: 3}
       propertyPath: WindSpeedRange.x
@@ -10552,6 +10552,14 @@ PrefabInstance:
     - target: {fileID: 3567358601728944687, guid: 3ca8ca68866cdd24084f9ade5b086388, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567358602043359810, guid: 3ca8ca68866cdd24084f9ade5b086388, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567358602043359821, guid: 3ca8ca68866cdd24084f9ade5b086388, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca8ca68866cdd24084f9ade5b086388, type: 3}

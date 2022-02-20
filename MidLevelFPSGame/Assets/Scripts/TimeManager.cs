@@ -24,7 +24,7 @@ public class TimeManager : MonoBehaviour
 
         if (time > 60f)
         {
-            Initiate.Fade("GameOverScene", Color.white, 1.0f);
+            Initiate.Fade("GameOverScene", Color.black, 1.0f);
             Cursor.lockState = CursorLockMode.None;
         }
     }

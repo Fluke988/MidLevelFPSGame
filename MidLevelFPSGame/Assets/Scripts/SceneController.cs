@@ -16,7 +16,7 @@ public class SceneController : MonoBehaviour
 
     public void OnHomeButtonClicked()
     {
-        Initiate.Fade("HomeScene", Color.white, 1.0f);
+        Initiate.Fade("HomeScene", Color.black, 1.0f);
     }
 
 }
